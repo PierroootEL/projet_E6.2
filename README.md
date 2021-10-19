@@ -1,3 +1,12 @@
-# projet_E6.2
+# Projet E6.2
 
-Modification test 2
+``
+Schéma Drawio
+``
+schema_reseau.drawio
+
+``
+Use case
+``
+
+use_case.drawio
