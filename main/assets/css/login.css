@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap%27');
+
+*{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container #bg_image{
+    position: absolute;
+
+    width: 100vw;
+}
+
+.container #logo{
+    position: absolute;
+    z-index: 2;
+
+    top: 30px;
+    left: calc(calc(100vw - 440px) / 2);
+}
+
+.login-container{
+    position: absolute;
+    z-index: 3;
+
+    width: 350px;
+    height: 300px;
+
+    top: calc(calc(100vh - 300px) / 2);
+    left: calc(calc(100vw - 350px) / 2);
+
+    background: transparent;
+    border: 3px solid black;
+    border-radius: 14px;
+
+    text-align: center;
+
+    font-family: Comfortaa;
+}
+
+.login-container form{
+    max-width: 350px;
+}
+
+.login-container form input{
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+
+    margin: 30px auto;
+
+    padding: 10px;
+
+    border: 2px solid black;
+
+    background: transparent;
+
+    font-family: Comfortaa;
+    font-size: 18px;
+    color: black;
+}
+
+.login-container form input::placeholder{
+    color: black;
+}
+
+.login-container form button{
+    display: flex;
+    flex-direction: row;
+
+    padding: 14px;
+
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 12px;
+
+    font-family: Comfortaa;
+    font-size: 16px;
+
+    transition-property: background;
+    transition-duration: 0.5s;
+
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.login-container form button:hover{
+    background: #C6C6C6;
+
+    transition-property: background;
+    transition-duration: 0.5s;
+}
