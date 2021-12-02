@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap%27');
+
+*{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: Comfortaa;
+}
+
+.container {
+    background-color: #666;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container h1{
+    font-size: 5.5em;
+    color: #adbf00;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    text-shadow: 2px 2px black;
+}
+
+.container form{
+    font-size: 3em;
+    text-align: center;
+}
+
+.container #nom{
+    margin-left: 275px;
+}
+.container #prenom{
+    margin-left: 205px;
+}
+.container #mot_de_passe{
+    margin-left: 55px;
+}
+
+.container input{
+    font-size: 0.5em;
+}
+.container #confirmer{
+    margin-left: 410px;
+}
+.container #irup{
+    width: auto;
+    height: auto;
+    margin-left: 750px;
+
+}
+.container button{
+    margin-left: 625px;
+    font-size: 0.5em;
+    width: 140px;
+    height: 50px;
+}
+.container form input {
+    width: 360px;
+    padding: 8px 8px;
+}
+.container form{
+    border: 2px solid black;
+    border: thick double;
+    width: 100%;
+    padding: 50px 20px 50px 20px ;
+    margin-bottom: 20px;
+    background-color: #adbf00;
+}

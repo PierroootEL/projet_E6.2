@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap%27');
+
+*{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    background: #adbf00;
+}
+
+.container{
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+
+    font-family: Comfortaa, sans-serif;
+}
+
+.left-container{
+    position: absolute;
+
+    width: 450px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #666666;
+}
+
+.left-container input, .left-container button{
+    position: relative;
+
+    padding: 14px;
+    width: 80%;
+
+    background: transparent;
+    border: 3px solid black;
+    border-radius: 14px;
+
+    margin: auto auto;
+
+    transition-property: background;
+    transition-duration: 0.6s ;
+}
+
+.left-container input:hover, .left-container button:hover{
+    background: white;
+    transition-property: background;
+    transition-duration: 0.6s;
+}
+
+.right-container{
+    position: absolute;
+
+    left: 450px;
+
+    width: calc(100vw - 450px);
+    height: 100vh;
+}
+
+.right-container table{
+    position: relative;
+
+    margin-top: 40px;
+    margin-left: 10%;
+
+    width: 90%;
+
+    text-align: center;
+
+    letter-spacing: 1px;
+}
+
+.right-container table tr{
+
+}
