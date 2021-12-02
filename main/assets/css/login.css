@@ -92,3 +92,20 @@
     transition-property: background;
     transition-duration: 0.5s;
 }
+
+/** Responsive */
+
+@media screen and (max-height: 1740px){
+    .container #bg_image{
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 490px){
+    .container #logo{
+        width: 80%;
+
+        top: 100px;
+        left: calc(calc(100vw - 80%) / 2);
+    }
+}
