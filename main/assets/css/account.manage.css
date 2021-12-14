@@ -37,6 +37,8 @@ html{
     padding: 14px;
     width: 80%;
 
+    color: black;
+
     background: transparent;
     border: 3px solid black;
     border-radius: 14px;
@@ -77,4 +79,39 @@ html{
 
 .right-container table tr{
 
+}
+
+
+@media screen and (max-width: 1130px){
+    .left-container{
+        width: 250px;
+    }
+    .right-container{
+        left: 250px;
+        width: calc(100vw - 250px);
+    }
+}
+
+@media screen and (max-width: 880px){
+    .left-container{
+        top: 0;
+        left: 0;
+
+        height: 150px;
+        width: 100%;
+
+        flex-direction: row;
+    }
+
+    .right-container{
+        top: 155px;
+        left: 0;
+
+        height: calc(100vh - 155px);
+        width: 100vw;
+    }
+
+    .right-container button, .left-container input {
+        width: 20px;
+    }
 }
