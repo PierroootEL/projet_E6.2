@@ -53,6 +53,7 @@ html{
     background: white;
     transition-property: background;
     transition-duration: 0.6s;
+    cursor: pointer;
 }
 
 .right-container{
