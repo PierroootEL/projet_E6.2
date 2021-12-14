@@ -23,7 +23,7 @@ html{
     position: absolute;
 
     width: 450px;
-    height: 100vh;
+    height: calc(100vh - 120px);
 
     display: flex;
     flex-direction: column;
@@ -81,6 +81,22 @@ html{
 
 }
 
+footer{
+    position: absolute;
+    z-index: 999;
+
+    height: 125px;
+    width: 100vw;
+
+    bottom: 0;
+
+    background: #666666;
+}
+
+footer img{
+    margin: 25px calc(calc(100vw - 440px) / 2);
+}
+
 
 @media screen and (max-width: 1130px){
     .left-container{
@@ -107,11 +123,28 @@ html{
         top: 155px;
         left: 0;
 
+
         height: calc(100vh - 155px);
         width: 100vw;
     }
 
-    .right-container button, .left-container input {
-        width: 20px;
+    .left-container button, .left-container input {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 470px){
+    .right-container table{
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    footer{
+        height: 100px;
+    }
+
+    footer img{
+        width: 320px;
+        margin: 25px calc(calc(100vw - 320px) / 2);
     }
 }
