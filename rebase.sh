@@ -8,4 +8,4 @@ git checkout main
 
 git pull 
 
-git rebase origin/dev
+# git rebase origin/dev
