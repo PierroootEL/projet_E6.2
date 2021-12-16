@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap%27');
 
 *{
-    overflow: hidden;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
@@ -9,7 +9,7 @@
 html {
     background-color: #adbf00;
 }
-/* *******************************************  body  ************************************************* */
+/* **********  body  ********** */
 
 h1{
     font-size: 3.5em;
@@ -49,10 +49,7 @@ h1{
 
 }
 
-
-
-
-/* ******************************************  footer  ************************************************ */
+/* ***********  footer  *********** */
 
 footer {
     position: absolute;
@@ -65,6 +62,19 @@ footer {
     background-color: #666666;
 }
 
-footer #logo{
+footer img{
     margin: 25px calc(calc(100vw - 440px) / 2);
+}
+
+@media screen and (max-width: 950px){
+    header h1{
+        font-size: 42px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    footer img{
+        width: 340px;
+        margin: 30px calc(calc(100vw - 340px) / 2);
+    }
 }
