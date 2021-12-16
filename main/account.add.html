@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CrÃ©ation de compte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-  <link rel="shortcut icon" type="image/png" href="favicon.ico">
-  <link rel="stylesheet" href="assets/css/account.add.css">
+    <title>Création de compte</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet" href="assets/css/account.add.css">
 </head>
 <body>
-
 <div class="container">
-  <h1>Ajouter un compte</h1>
-
-  <form method="post" action="contact.php">
-    <label for="nom">Nom</label>
-    <input id="nom" type="text" name="nom" placeholder="Nom">
-    <br>
-    <br>
-    <label for="prenom">Prenom</label>
-    <input id="prenom" type="text" name="prenom" placeholder="Prenom">
-    <br>
-    <br>
-    <label for="mot_de_passe">Mot de passe</label>
-    <input id="mot_de_passe" type="text" name="mot de passe" placeholder="Mot de passe">
-    <br>
-    <br>
-    <label for=confirmer></label>
-    <input id="confirmer" type="text" name="confirmer" placeholder="Confirmer le mot de passe">
-    <br>
-    <br>
-    <button type="submit" name="validation">Valider</button>
-  </form>
-  <div id="irup">
-    <img src="assets/img/irup.jpg">
-  </div>
+    <header>
+        <h1>Ajouter un compte</h1>
+    </header>
+    <div class="form-container">
+        <form method="post" action="">
+            <label for="nom">Nom : </label>
+            <input id="nom" type="text" name="nom" placeholder="Nom">
+            <label for="prenom">Prenom : </label>
+            <input id="prenom" type="text" name="prenom" placeholder="Prenom">
+            <label for="mot_de_passe">Mot de passe : </label>
+            <input id="mot_de_passe" type="text" name="mot de passe" placeholder="Mot de passe">
+            <input id="confirmer" type="text" name="confirmer" placeholder="Confirmer le mot de passe">
+            <button type="submit" name="validation">Valider</button>
+        </form>
+    </div>
+    <footer>
+        <img src="assets/img/irup.jpg" alt="">
+    </footer>
 </div>
-
 </body>
 </html>

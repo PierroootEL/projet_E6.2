@@ -1,69 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap%27');
 
-*{
-    overflow: hidden;
+* {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     font-family: Comfortaa;
 }
 
 .container {
-    background-color: #666;
+    position: absolute;
+
     height: 100vh;
     width: 100vw;
+
+    background: #adbf00;
 }
 
-.container h1{
-    font-size: 5.5em;
-    color: #adbf00;
+header {
+    position: absolute;
+
+    top: 0;
+
+    height: 80px;
+    width: 100vw;
+
+    background-color: #666666;
+
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 70px;
-    text-shadow: 2px 2px black;
 }
 
-.container form{
-    font-size: 3em;
+header h1 {
+    margin: 20px 0;
+}
+
+.form-container {
+    position: absolute;
+
+    top: 80px;
+
+    height: calc(100vh - 80px);
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form{
+    position: absolute;
+
+    left: calc(calc(100vw - 400px) / 2);
+
+    height: min-content;
+    width: 400px;
+}
+
+.form-container label, .form-container input, .form-container button{
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px;
+
     text-align: center;
 }
 
-.container #nom{
-    margin-left: 275px;
-}
-.container #prenom{
-    margin-left: 205px;
-}
-.container #mot_de_passe{
-    margin-left: 55px;
+.form-container input{
+    width: 300px;
+
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 3px solid black;
+    border-radius: 12px;
 }
 
-.container input{
-    font-size: 0.5em;
-}
-.container #confirmer{
-    margin-left: 410px;
-}
-.container #irup{
-    width: auto;
-    height: auto;
-    margin-left: 750px;
+.form-container button {
+    margin: 0 auto;
 
+    border: 3px solid black;
+    border-radius: 12px;
 }
-.container button{
-    margin-left: 625px;
-    font-size: 0.5em;
-    width: 140px;
-    height: 50px;
+
+footer {
+    position: absolute;
+
+    bottom: 0;
+
+    height: 100px;
+    width: 100vw;
+
+    background: #666666;
 }
-.container form input {
-    width: 360px;
-    padding: 8px 8px;
+
+
+
+footer img {
+    width: 370px;
+
+    margin: 15px calc(calc(100vw - 370px) / 2);
 }
-.container form{
-    border: 2px solid black;
-    border: thick double;
-    width: 100%;
-    padding: 50px 20px 50px 20px ;
-    margin-bottom: 20px;
-    background-color: #adbf00;
+
+
+
+@media screen and (max-width: 400px){
+    footer img{
+        width: 280px;
+
+        margin: 22px calc(calc(100vw - 280px) / 2);
+    }
 }
