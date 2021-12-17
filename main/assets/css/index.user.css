@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap%27');
+
+
+*{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    background: #FFFFFF;
+
+    font-family: Comfortaa, sans-serif;
+}
+
+/** Header */
+
+header{
+    position: absolute;
+
+    top: 0;
+
+    height: 100px;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+
+    background: #666666;
+}
+
+header h2{
+    position: relative;
+    margin: 35px 20px;
+
+    color: #FFFFFF;
+}
+
+header .right{
+    position: absolute;
+
+    right: 0;
+
+    height: 100px;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+header .right li{
+    margin-right: 30px;
+
+    list-style: none;
+
+    border: 2px solid #FFFFFF;
+    padding: 12px;
+    border-radius: 24px;
+
+    transition-property: background;
+    transition-duration: 0.6s;
+}
+
+header .right li a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+header .right li:hover{
+    background: #000000;
+    transition-property: background;
+    transition-duration: 0.6s;
+}
+
+header .right li a:hover{
+    text-decoration: 1px underline red;
+}
+
+/** Fin header */
+/** Sidebar */
+
+nav.side-bar{
+    position: absolute;
+
+    top: 100px;
+    left: 0;
+
+    height: calc(100vh - 100px);
+    width: 250px;
+
+    background: #666666;
+}
+
+/** Fin sidebar */
+
+.inside-container{
+    position: absolute;
+
+    top: 100px;
+    left: 250px;
+
+    height: calc(100vh - 100px);
+    width: calc(100vw - 250px);
+}
+
+/** Tacktime */
+
+.tacktime{
+    position: relative;
+
+    margin: 20px 20px;
+
+    width: calc(100% - 40px);
+    height: 170px;
+
+    background: #adbf00;
+}
+
+.tacktime .tacktime-header{
+    position: absolute;
+
+    top: 0;
+
+    height: 50px;
+    width: 100%;
+
+    background: #666666;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.tacktime .tacktime-header h1{
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+/** Fin tacktime */
+/** Production globale */
+
+.global-production{
+    position: relative;
+
+    margin-top: 20px;
+    margin-left: 20px;
+
+    width: calc(calc(100% / 2) - 50px);
+    height: calc(calc(100% - 250px));
+
+    background: #adbf00;
+}

@@ -28,7 +28,7 @@ html{
     display: flex;
     flex-direction: column;
 
-    background: #666666;
+    background: #C6C6C6;
 }
 
 .left-container input, .left-container button{
