@@ -235,3 +235,17 @@ nav.side-bar{
         width: calc(100vw - 40px);
     }
 }
+
+@media screen and (max-width: 450px){
+    .tacktime .tacktime--header{
+        font-size: 12px;
+    }
+
+    .global-production .global-production--header{
+        font-size: 12px;
+    }
+
+    .actual-stock .actual-stock--header{
+        font-size: 12px;
+    }
+}
