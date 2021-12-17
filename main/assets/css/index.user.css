@@ -103,6 +103,9 @@ nav.side-bar{
 
     height: calc(100vh - 100px);
     width: calc(100vw - 250px);
+
+    display: flex;
+    flex-direction: column;
 }
 
 /** Tacktime */
@@ -118,7 +121,7 @@ nav.side-bar{
     background: #adbf00;
 }
 
-.tacktime .tacktime-header{
+.tacktime .tacktime--header{
     position: absolute;
 
     top: 0;
@@ -132,11 +135,8 @@ nav.side-bar{
     flex-direction: column;
 
     justify-content: center;
-}
 
-.tacktime .tacktime-header h1{
     text-align: center;
-
     color: #FFFFFF;
 }
 
@@ -144,13 +144,94 @@ nav.side-bar{
 /** Production globale */
 
 .global-production{
-    position: relative;
+    position: absolute;
 
-    margin-top: 20px;
-    margin-left: 20px;
+    top: 220px;
+    left: 20px;
 
-    width: calc(calc(100% / 2) - 50px);
+    width: calc(calc(100% / 2) - 35px);
     height: calc(calc(100% - 250px));
 
     background: #adbf00;
+}
+
+.global-production .global-production--header{
+    position: absolute;
+
+    top: 0;
+
+    height: 50px;
+    width: 100%;
+
+    background: #666666;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/** Fin production globale */
+/** Actual stock */
+
+.actual-stock{
+    position: absolute;
+
+    top: 220px;
+    right: 20px;
+
+    width: calc(calc(100% / 2) - 35px);
+    height: calc(calc(100% - 250px));
+
+    background: #adbf00;
+}
+
+.actual-stock .actual-stock--header{
+    position: absolute;
+
+    top: 0;
+
+    height: 50px;
+    width: 100%;
+
+    background: #666666;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+@media screen and (max-width: 1080px){
+    nav.side-bar{
+        left: -250px;
+    }
+
+    .inside-container{
+        left: 0;
+
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 775px){
+    .global-production{
+        left: 20px;
+
+        width: calc(100vw - 40px);
+    }
+
+    .actual-stock{
+        top: calc(250px + calc(100% - 250px));
+        left: 20px;
+
+        width: calc(100vw - 40px);
+    }
 }

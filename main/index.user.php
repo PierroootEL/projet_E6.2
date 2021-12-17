@@ -21,12 +21,19 @@
     </nav>
     <div class="inside-container">
         <div class="tacktime">
-            <div class="tacktime-header">
+            <div class="tacktime--header">
                 <h1>Tack Time actuel</h1>
             </div>
         </div>
         <div class="global-production">
-
+            <div class="global-production--header">
+                <h1>Production globale</h1>
+            </div>
+        </div>
+        <div class="actual-stock">
+            <div class="actual-stock--header">
+                <h1>Stock actuel</h1>
+            </div>
         </div>
     </div>
 </body>
