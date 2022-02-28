@@ -12,7 +12,7 @@
                 }
             }
 
-            public static function checkRights()
+            public static function hasRights()
             {
                 session_start();
 
@@ -28,6 +28,8 @@
                 foreach ($_SESSION as $session_var){
                     unset($var);
                 }
+
+                session_destroy();
 
                 header('Location: login.php');
             }
