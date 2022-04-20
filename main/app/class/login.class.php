@@ -41,8 +41,8 @@
             )){
                 LoginError::returnLoginError(2);
             }
-
-            Session::sessionStart(
+            $session = new Session();
+            $session->sessionStart(
                 $this->request(
                     'SELECT user_id, last_name, first_name, username, assigned_workbench, assigned_authorisation, created_at FROM users WHERE username = :username',
                     array(

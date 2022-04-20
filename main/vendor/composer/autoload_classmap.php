@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Account' => $baseDir . '/app/class/account.class.php',
+    'App\\DataExport' => $baseDir . '/app/class/dataexport.class.php',
     'App\\Database' => $baseDir . '/app/class/database.php',
     'App\\Login' => $baseDir . '/app/class/login.class.php',
     'App\\LoginError' => $baseDir . '/app/class/login.error.php',

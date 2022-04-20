@@ -3,9 +3,7 @@
     session_start();
 
     require_once 'vendor/autoload.php';
-
-    $session = new \App\Session();
-    $session->sessionRights();
+    require_once 'src/sessionCheckerUser.php';
 
     $workbench = new \App\Workbench();
 

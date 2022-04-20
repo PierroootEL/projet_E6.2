@@ -3,8 +3,7 @@
     session_start();
 
     require_once 'vendor/autoload.php';
-
-    sessionController::checkRights();
+    require_once 'src/sessionCheckerAdmin.php';
 
 ?>
 <html>
@@ -24,8 +23,8 @@
 <body>
 <div class="container">
     <div class="container_left">
-        <button class="un" type="button">Gestion des comptes</button>
-        <button class="deux" type="button">Export des données</button>
+        <button class="un" type="button" onclick="location.href='gestion.comptes.php'">Gestion des comptes</button>
+        <button class="deux" type="button" onclick="location.href='dataexport.php'">Export des données</button>
         <button onclick="location.href='disconnect.php'">Logout</button>
         <h1><?php print $_SESSION['first_name'] . PHP_EOL .$_SESSION['last_name']; ?></h1>
     </div>

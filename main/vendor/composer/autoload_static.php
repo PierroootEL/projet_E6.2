@@ -8,6 +8,7 @@ class ComposerStaticInitdbab3212b91b3b38338815aeed292cd8
 {
     public static $classMap = array (
         'App\\Account' => __DIR__ . '/../..' . '/app/class/account.class.php',
+        'App\\DataExport' => __DIR__ . '/../..' . '/app/class/dataexport.class.php',
         'App\\Database' => __DIR__ . '/../..' . '/app/class/database.php',
         'App\\Login' => __DIR__ . '/../..' . '/app/class/login.class.php',
         'App\\LoginError' => __DIR__ . '/../..' . '/app/class/login.error.php',
