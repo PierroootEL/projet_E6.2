@@ -1,5 +1,6 @@
 <?php
 
+    require_once 'vendor/autoload.php';
 
 ?>
 <!DOCTYPE html>
@@ -19,13 +20,28 @@
     <img id="bg_image" src="assets/istp_bg.jpg" alt="">
     <img id="logo" src="assets/irup.jpg">
     <div class="login-container">
-        <form method="post" action="">
-            <input type="text" placeholder="Nom d'utilisateur">
-            <input type="password" placeholder="Mot de passe">
-            <button type="submit">Se Connecter</button>
+        <form method="post" action="app/listener/login.listener.php">
+            <input type="text" name="username" placeholder="Nom d'utilisateur">
+            <input type="password" name="password" placeholder="Mot de passe">
+            <button name="valid" type="submit">Se Connecter</button>
         </form>
-        <a href="">Mot de passe oublié</a>
+        <?php new \App\LoginError(); ?>
+        <br>
+        <br>
+        <a onclick="showPassword();">Mot de passe oublié ?</a>
+        <h4 style="margin-top: 10px; display: none" id="password_text">Merci de contacter votre responsable !</h4>
     </div>
 </div>
 </body>
+<script>
+    function showPassword(){
+        var password_text = document.getElementById('password_text').style;
+
+        if (password_text.display === 'none'){
+            password_text.display = 'block';
+        }else{
+            password_text.display = 'none';
+        }
+    }
+</script>
 </html>

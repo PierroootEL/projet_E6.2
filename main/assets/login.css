@@ -25,7 +25,7 @@
     z-index: 3;
 
     width: 350px;
-    height: 300px;
+    height: 350px;
 
     top: calc(calc(100vh - 300px) / 2);
     left: calc(calc(100vw - 350px) / 2);
@@ -97,6 +97,16 @@
 
 .container .login-container a{
     color: #FFFFFF;
+}
+
+.container .login-container a:hover{
+    cursor: pointer;
+}
+
+.container .login-container h4{
+    margin-top: 10px;
+
+    display: none;
 }
 
 /** Responsive */

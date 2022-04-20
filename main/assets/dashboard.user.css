@@ -1,0 +1,32 @@
+.container{
+    height: 100%;
+    width: 100%;
+    Flex-direction: column;
+    display: flex;
+    Justify-content: center ;
+    Align-items: center ;
+}
+.container button{
+    width: 80px;
+    height: 30px;
+}
+.container button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.container h1{
+    border: 0.5rem solid;
+    font-size: 5em;
+    padding: 80px 80px 80px 80px;
+}
+.container h2{
+    font-size: 3em;
+    margin-top: -100px;
+}
+.container h3{
+    font-size: 1.5em;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+

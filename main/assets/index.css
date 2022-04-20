@@ -3,5 +3,42 @@
     padding: 0;
 
     overflow-x: hidden;
+
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+}
+.container {
+    position: absolute;
+
+    height: calc(100vh - 75px);
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+
+    background-color: #adbf00;
+}
+footer{
+    position: absolute;
+
+    bottom: 0;
+
+    height: 75px;
+    width: 100vw;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #6a6a66;
 }
 
+@media screen and (max-width: 495px){
+    footer img{
+        width: 90%;
+    }
+}
