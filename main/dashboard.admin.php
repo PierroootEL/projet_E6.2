@@ -37,9 +37,9 @@
                 <th>ATL n°</th>
                 <th>User</th>
                 <th>TackTime</th>
-                <th>TotalTime</th>
+                <th>Temps restant</th>
                 <th>Pièces OK</th>
-                <th>Type de pièces</th>
+                <th>Type d'opération</th>
             </tr>
             </thead>
             <tbody>
