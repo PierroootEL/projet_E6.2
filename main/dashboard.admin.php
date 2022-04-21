@@ -5,6 +5,8 @@
     require_once 'vendor/autoload.php';
     require_once 'src/sessionCheckerAdmin.php';
 
+    $operation = new \App\Operation();
+
 ?>
 <html>
 <head>
@@ -41,14 +43,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Pierre</td>
-                <td>+0.20</td>
-                <td>4.40</td>
-                <td>2/10</td>
-                <td>Clé USB</td>
-            </tr>
+                <?php $operation->returnAllOperations(); ?>
             </tbody>
         </table>
     </div>

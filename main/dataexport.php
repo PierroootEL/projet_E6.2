@@ -11,7 +11,7 @@
 
     sleep(5);
 
-    header('Location: /gestion.comptes.php');
+    header('Location: /dashboard.admin.php');
 
 ?>
 <html>
