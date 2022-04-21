@@ -28,11 +28,10 @@
     <div class="container_left">
         <button class="un" type="button" onclick="location.href='register.php'">Ajouter un compte</button>
 
-        <label for="site-search"></label>
-        <input type="search" id="site-search" name="q"
-               aria-label="Search through site content">
-
-        <button>Rechercher</button>
+        <form method="get" action="">
+            <input type="search" name="search" placeholder="Nom de famille">
+            <button>Rechercher</button>
+        </form>
     </div>
     <div class ="container_right">
         <table class="minimalistBlack">
@@ -46,7 +45,7 @@
             </tr>
             </thead>
             <tbody>
-                <?php $acc->returnAllUsers(); ?>
+                <?php (isset($_GET['search'])) ? $acc->returnAllUsers($_GET['search']) : $acc->returnAllUsers(false) ?>
             </tbody>
         </table>
     </div>
