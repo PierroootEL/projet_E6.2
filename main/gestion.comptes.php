@@ -1,10 +1,9 @@
 <?php
 
-// include_once '/var/www/projet_E6.2/main/app/core/controller.session.php';
-
-// sessionController::checkRights();
+    session_start();
 
     require_once 'vendor/autoload.php';
+    require_once 'src/sessionCheckerAdmin.php';
 
     $acc = new App\Account();
 
