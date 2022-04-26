@@ -24,9 +24,9 @@
     <div class="container">
         <div class="password-container">
             <h1>Mot de passe</h1>
-            <form method="post" action="app/listener/password.listener.php">
-                <input  type="text" name="nouveau" placeholder="Nouveau mot de passe">
-                <input  type="password" name="saisir" placeholder="Saisir à nouveau">
+            <form method="post" action="app/listener/password.listener.php?id=<?php print $_GET['id']; ?>">
+                <input  type="password" name="password" placeholder="Nouveau mot de passe">
+                <input  type="password" name="password_conf" placeholder="Saisir à nouveau">
                 <button class="valide" type="submit">Confirmer</button>
             </form>
         </div>

@@ -36,8 +36,8 @@
                         <td>{$account['last_name']}</td>
                         <td>{$account['first_name']}</td>
                         <td>{$account['user_id']}</td>
-                        <td><a href=''>{$account['user_id']}</a></td>
-                        <td><a href=''>Supprimer</a></td>
+                        <td><a href='motdepasse.php?id={$account['user_id']}'>Modifier</a></td>
+                        <td><a href='delete.php?type=acc&id={$account['user_id']}'>Supprimer</a></td>
                 ";
                 }
             }

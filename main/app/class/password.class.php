@@ -2,7 +2,7 @@
 
     namespace App;
 
-    class Password
+    class Password extends Database
     {
 
         public static function comparePassword(string $password1, string $password2)
@@ -30,6 +30,18 @@
 
             return password_verify($password, $hashed_password);
 
+        }
+
+        public function updatePassword(int $acc_id, string $password){
+            $hash = self::hashPassword($password);
+
+            $this->request(
+                'UPDATE users SET password = :pass WHERE user_id = :id',
+                array(
+                    ':pass' => $hash,
+                    ':id' => $acc_id
+                )
+            );
         }
 
     }
