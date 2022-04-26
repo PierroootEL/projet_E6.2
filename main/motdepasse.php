@@ -1,8 +1,8 @@
 <?php
 
-// include_once '/var/www/projet_E6.2/main/app/core/controller.session.php';
+    session_start();
 
-// sessionController::checkRights();
+    require_once 'src/sessionCheckerAdmin.php';
 
 ?>
 
@@ -24,9 +24,11 @@
     <div class="container">
         <div class="password-container">
             <h1>Mot de passe</h1>
-            <input  type="text" name="nouveau" placeholder="Nouveau mot de passe">
-            <input  type="password" name="saisir" placeholder="Saisir à nouveau">
-            <button class="valide" type="button">Confirmer</button>
+            <form method="post" action="app/listener/password.listener.php">
+                <input  type="text" name="nouveau" placeholder="Nouveau mot de passe">
+                <input  type="password" name="saisir" placeholder="Saisir à nouveau">
+                <button class="valide" type="submit">Confirmer</button>
+            </form>
         </div>
     </div>
 </body>

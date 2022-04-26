@@ -44,6 +44,18 @@
 
         }
 
+        public function deleteUser(int $id)
+        {
+
+            $this->request(
+                'DELETE FROM users WHERE user_id = :id',
+                array(
+                    ':id' => $id
+                )
+            );
+
+        }
+
     }
 
 ?>

@@ -25,11 +25,11 @@
 <body>
 <div class="container">
     <div class="container_left">
+        <h1><?php print $_SESSION['first_name'] . PHP_EOL .$_SESSION['last_name']; ?></h1>
         <button class="un" type="button" onclick="location.href='gestion.comptes.php'">Gestion des comptes</button>
         <button class="deux" type="button" onclick="location.href='dataexport.php'">Export des données</button>
         <button class="trois" type="button" onclick="location.href='gestion.workbench.php'">Gestion des établis</button>
         <button onclick="location.href='disconnect.php'">Logout</button>
-        <h1><?php print $_SESSION['first_name'] . PHP_EOL .$_SESSION['last_name']; ?></h1>
     </div>
     <div class ="container_right">
         <table class="minimalistBlack">

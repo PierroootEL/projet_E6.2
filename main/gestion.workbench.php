@@ -22,7 +22,7 @@
 <body>
 <div class="container">
     <div class="container_left">
-        <button class="un" type="button">Ajouter un atelier</button>
+        <button class="un" type="button" onclick="location.href='create.workbench.php'">Ajouter un atelier</button>
 
     </div>
     <div class ="container_right">
