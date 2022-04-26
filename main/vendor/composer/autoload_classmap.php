@@ -12,6 +12,7 @@ return array(
     'App\\Login' => $baseDir . '/app/class/login.class.php',
     'App\\LoginError' => $baseDir . '/app/class/login.error.php',
     'App\\Operation' => $baseDir . '/app/class/operation.class.php',
+    'App\\Order' => $baseDir . '/app/class/order.class.php',
     'App\\Password' => $baseDir . '/app/class/password.class.php',
     'App\\Register' => $baseDir . '/app/class/register.class.php',
     'App\\RegisterError' => $baseDir . '/app/class/register.error.php',

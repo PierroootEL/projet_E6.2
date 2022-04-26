@@ -13,6 +13,11 @@
             foreach ($this->request(
                 'SELECT * FROM users LEFT JOIN workbench ON users.assigned_workbench = workbench.workbench_id LEFT JOIN operation ON workbench.assigned_operation = operation.operation_id LEFT JOIN product ON operation.product_value = product.product_id'
             )->fetchAll() as $operation){
+
+                if ($operation['assigned_operation'] == 0){
+                    continue;
+                }
+
                 if ($operation['ok_element'] >= $operation['quantity']){
                     $this->request(
                         'UPDATE operation SET status = 2 WHERE operation_id = :id',
