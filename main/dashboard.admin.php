@@ -21,14 +21,24 @@
     <link rel="stylesheet" type="text/css" href="assets/index.css">
     <link rel="stylesheet" type="text/css" href="assets/gestion.comptes.css">
     <link rel="stylesheet" type="text/css" href="assets/dashboard.admin.css">
+    <link rel="stylesheet" type="text/css" href="assets/nav.css">
+
+
 </head>
 <body>
+<nav>
+    <ul>
+        <li><a href="gestion.comptes.php">Gestion comptes</a></li>
+        <li><a href="gestion.comptes.php">Gestion ateliers</a></li>
+        <li><a href="gestion.products.php">Gestion produits</a></li>
+        <li><a href="gestion.order.php">Gestion commandes</a></li>
+    </ul>
+</nav>
 <div class="container">
     <div class="container_left">
         <h1><?php print $_SESSION['first_name'] . PHP_EOL .$_SESSION['last_name']; ?></h1>
-        <button class="un" type="button" onclick="location.href='gestion.comptes.php'">Gestion des comptes</button>
+       
         <button class="deux" type="button" onclick="location.href='dataexport.php'">Export des données</button>
-        <button class="trois" type="button" onclick="location.href='gestion.workbench.php'">Gestion des établis</button>
         <button onclick="location.href='disconnect.php'">Logout</button>
     </div>
     <div class ="container_right">
