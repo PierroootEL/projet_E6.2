@@ -125,15 +125,6 @@
             $d1 = new \DateTime(date('H:i:s'));
             $d2 = new \DateTime(date('H:i:s', strtotime($create_date . '+' . $assigned_time . 'minutes')));
 
-            if ($d1 > $d2){
-                $this->request(
-                    'UPDATE operation SET status = 3 WHERE operation_id = :id',
-                    array(
-                        ':id' => $operation_id
-                    )
-                );
-            }
-
             $interval = $d1->diff($d2);
 
             
@@ -146,6 +137,12 @@
 
             
             $tacktime = (date('i', strtotime($temps_restant)) + $heures_restantes) / $pieces_restantes;
+
+            if ($d1 > $d2){
+                $tacktime = '- ' . $tacktime;
+            }
+
+            
 
             return array(
                 'tacktime' => $tacktime,

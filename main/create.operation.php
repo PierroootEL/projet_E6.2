@@ -33,7 +33,8 @@ use App\Workbench;
             <select name="order">
                 <?php $order->returnSelectionForm(); ?>
             </select>
-            <input  type="text" name="Fonction atelier" placeholder="Saisir la fonction de l'atelier">
+            <input  type="text" name="quantité" placeholder="Saisir la quantité de pièces">
+            <input  type="text" name="temps" placeholder="Saisir le temps pour l'oppération">
             <button class="valide" name="valid" type="submit">Valider</button>
         </form>
         <?php  ?>

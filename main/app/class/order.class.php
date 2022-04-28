@@ -61,6 +61,36 @@
                 print "<h2>{$order['name']}</h2>";
                 foreach($operation->returnOperationFromOrderID($order['id']) as $operation)
                 {
+                    $d1 = new \DateTime(date('H:i:s'));
+                    $d2 = new \DateTime(date('H:i:s', strtotime($operation['create_date'] . '+' . $operation['assigned_time'] . 'minutes')));
+                    $jour_actuel = date('Y-m-d');
+                    $jour_creation = date('Y-m-d', strtotime($operation['create_date']));
+
+                    if ($jour_actuel > $jour_creation) {
+                        $this->request(
+                            'UPDATE operation SET status = 3 WHERE operation_id = :id',
+                            array(
+                                ':id' => $operation['operation_id']
+                            )
+                        );
+                    }
+
+                    $interval = $d1->diff($d2);
+
+                    
+                    $temps_restant = "{$interval->h}:{$interval->i}:{$interval->s}";
+                                    
+                    $heures_restantes = date('H', strtotime($temps_restant)) * 60;
+                    
+                    $pieces_restantes = $operation['quantity'] - $operation['ok_element'];
+
+                    
+                    $tacktime = (date('i', strtotime($temps_restant)) + $heures_restantes) / $pieces_restantes;
+
+                    if ($d1 > $d2){
+                        $tacktime = '- ' . $tacktime;
+                    }
+
                     print "
                     <h4>Opération n°{$operation['operation_id']} : </h4>
                     <table>
@@ -68,12 +98,15 @@
                             <th>Produit utilisé</th>
                             <th>Temps assigné</th>
                             <th>Elements fabriqués</th>
+                            <th>Tack Time</th>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>{$operation['product_value']}</td>
                                 <td>{$operation['assigned_time']} Minutes</td>
                                 <td>{$operation['ok_element']} / {$operation['quantity']}</td>
+                                <td>{$tacktime}</td>
+
                             </tr>
                         </tbody>
                     </table>
