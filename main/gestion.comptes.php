@@ -20,11 +20,13 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="assets/index.css">
-    <link rel="stylesheet" type="text/css" href="assets/gestion.comptes.css">
+    <link rel="stylesheet" type="text/css" href="assets/gestion.css">
 </head>
 <body>
 <div class="container">
     <div class="container_left">
+
+         <button class="un" type="button" onclick="location.href='dashboard.admin.php'">Dashboard Administrateur</button>
         <button class="un" type="button" onclick="location.href='register.php'">Ajouter un compte</button>
 
         <form method="get" action="">

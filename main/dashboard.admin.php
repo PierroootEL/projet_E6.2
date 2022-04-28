@@ -5,7 +5,7 @@
     require_once 'vendor/autoload.php';
     require_once 'src/sessionCheckerAdmin.php';
 
-    $operation = new \App\Operation();
+    $order = new \App\Order();
 
 ?>
 <html>
@@ -19,8 +19,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="assets/index.css">
-    <link rel="stylesheet" type="text/css" href="assets/dashboard.admin.css">
+    <link rel="stylesheet" type="text/css" href="assets/gestion.css">
     <link rel="stylesheet" type="text/css" href="assets/nav.css">
+    <link rel="stylesheet" type="text/css" href="assets/dashboard.admin.css">
+
 
 
 </head>
@@ -28,9 +30,9 @@
 <nav>
     <ul>
         <li><a href="gestion.comptes.php">Gestion comptes</a></li>
-        <li><a href="gestion.comptes.php">Gestion ateliers</a></li>
+        <li><a href="gestion.workbench.php">Gestion ateliers</a></li>
         <li><a href="gestion.products.php">Gestion produits</a></li>
-        <li><a href="gestion.order.php">Gestion commandes</a></li>
+        <li><a href="gestion.order.php">Gestion opérations</a></li>
     </ul>
 </nav>
 <div class="container">
@@ -41,21 +43,9 @@
         <button onclick="location.href='disconnect.php'">Logout</button>
     </div>
     <div class ="container_right">
-        <table class="minimalistBlack">
-            <thead>
-            <tr>
-                <th>ATL n°</th>
-                <th>User</th>
-                <th>TackTime</th>
-                <th>Temps restant</th>
-                <th>Pièces OK</th>
-                <th>Type d'opération</th>
-            </tr>
-            </thead>
-            <tbody>
-                <?php $operation->returnAllOperations(); ?>
-            </tbody>
-        </table>
+        <?php 
+            $order->returnAllOrderWithOperations();
+         ?>
     </div>
 </div>
 <footer>

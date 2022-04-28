@@ -1,8 +1,54 @@
-
-
-.container .container_left{
-    margin-bottom: 80px;
+.container{
+    margin-top: 80px;
+    
+    height: calc(100vh - 80px - 115px);
 }
-h1{
-    margin-bottom: 50px;
+
+.container_right{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
 }
+
+.box{
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    height: fit-content;
+    width: fit-content;
+
+    padding: 14px;
+
+    background:#6a6a66;
+}
+
+.box h2{
+    text-align: center;
+}
+
+.box h4{
+    margin-top: 14px;
+    text-decoration: underline;
+}
+
+.box table{
+    margin-top: 6px;
+    text-align: center;
+}
+
+table,
+table td {
+  border: 2px solid #cccccc;
+}
+
+th{
+    text-align: center;
+}
+
+td {
+    height: 80px;
+    width: 160px;
+    text-align: center;
+    vertical-align: middle;
+  }

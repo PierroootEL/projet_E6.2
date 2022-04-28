@@ -5,6 +5,11 @@
     class Workbench extends Database
     {
 
+        public function returnAllWorkbenchNoHTML()
+        {
+            return $this->request('SELECT * FROM workbench');
+        }
+
         public function returnAllWorkbench()
         {
 
@@ -35,6 +40,18 @@
 
         }
 
+        public function addWorkbench(string $fonction)
+        {
+
+            return $this->request(
+                'INSERT INTO workbench (workbench_name) VALUES (:w)',
+                array(
+                    ':w' => $fonction
+                )
+            );
+
+        }
+
         public function deleteWorkbench(int $id)
         {
 
@@ -45,6 +62,13 @@
                 )
             );
 
+        }
+
+        public function returnSelectionForm()
+        {
+            foreach ($this->returnAllWorkbenchNoHTML() as $workbench) {
+                print "<option value='{$workbench['id']}'>{$workbench['workbench_id']} : {$workbench['workbench_name']}</option>";
+            }
         }
 
     }

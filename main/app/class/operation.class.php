@@ -10,94 +10,149 @@
         public function returnAllOperations()
         {
 
-            foreach ($this->request(
-                'SELECT * FROM users LEFT JOIN workbench ON users.assigned_workbench = workbench.workbench_id LEFT JOIN operation ON workbench.assigned_operation = operation.operation_id LEFT JOIN product ON operation.product_value = product.product_id'
-            )->fetchAll() as $operation){
+            foreach ($this->mainForeachStatement() as $operation) {
+                $assigned_workbench = $this->assignedWorkbenchDetails($operation['operation_id']);
+                if ($assigned_workbench) {
+                    $assigned_user = $this->assignedUserDetails($assigned_workbench['workbench_id']);
+                }
+                $assigned_product = $this->assignedProduct($operation['product_value']);
 
-                if ($operation['assigned_operation'] == 0){
+                $tacktime = $this->returnTackTime($operation['create_date'], $operation['assigned_time'], $operation['operation_id'], $operation['quantity'], $operation['ok_element']);
+                
+                if ($operation['status'] == 2) {
+                    print "
+                        <tr>
+                            <td>{$assigned_workbench['workbench_id']}</td>
+                            <td>{$assigned_user['first_name']} {$assigned_user['last_name']}</td>
+                            <td>Terminé</td>
+                            <td>Terminé</td>
+                            <td>{$tacktime['pieces_restantes']} / {$operation['quantity']}</td>
+                            <td>{$assigned_product['name']}</td>
+                        </tr>
+                    ";   
+                
                     continue;
                 }
 
-                if ($operation['ok_element'] >= $operation['quantity']){
-                    $this->request(
-                        'UPDATE operation SET status = 2 WHERE operation_id = :id',
-                        array(
-                            ':id' => $operation['operation_id']
-                        )
-                    );
-                }
-
-                if ($operation['status'] == '2'){
+                if ($operation['status'] == 3) {
                     print "
                         <tr>
-                            <td>{$operation['workbench_id']}</td>        
-                            <td>{$operation['username']}</td>        
-                            <td>Fini</td>        
-                            <td>Fini</td>        
-                            <td>{$operation['ok_element']} / {$operation['quantity']}</td>        
-                            <td>{$operation['name']}</td>
+                            <td>{$assigned_workbench['workbench_id']}</td>
+                            <td>{$assigned_user['first_name']} {$assigned_user['last_name']}</td>
+                            <td>En retard</td>
+                            <td>En retard</td>
+                            <td>{$tacktime['pieces_restantes']} / {$operation['quantity']}</td>
+                            <td>{$assigned_product['name']}</td>
                         </tr>
                     ";
 
                     continue;
-                }
-
-                if ($operation['status'] == '3'){
-                    print "
-                        <tr>
-                            <td>{$operation['workbench_id']}</td>        
-                            <td>{$operation['username']}</td>        
-                            <td>En retard</td>        
-                            <td>En retard</td>        
-                            <td>{$operation['ok_element']} / {$operation['quantity']}</td>        
-                            <td>{$operation['name']}</td>
-                        </tr>
-                    ";
-
-                    continue;
-                }
-
-                $d1 = new \DateTime(date('H:i:s'));
-                $d2 = new \DateTime(date('H:i:s', strtotime($operation['create_date'] . '+' . $operation['assigned_time'] . 'minutes')));
-
-                if ($d1 > $d2){
-                    $this->request(
-                        'UPDATE operation SET status = 3 WHERE operation_id = :id',
-                        array(
-                            ':id' => $operation['operation_id']
-                        )
-                    );
-                }
-
-                $interval = $d1->diff($d2);
-
-                $temps_restant = "{$interval->h}:{$interval->i}:{$interval->s}";
-
-                $heures_restantes = date('H', strtotime($temps_restant)) * 60;
-                $pieces_restantes = $operation['quantity'] - $operation['ok_element'];
-
-                $tacktime = (date('i', strtotime($temps_restant)) + $heures_restantes) / $pieces_restantes;
-
-                if ($d1 > $d2){
-                    $this->request(
-                        'UPDATE operation SET status = 3 WHERE operation_id = :id',
-                        array(
-                            ':id' => $operation['operation_id']
-                        )
-                    );
                 }
 
                 print "
-                <tr>
-                    <td>{$operation['workbench_id']}</td>        
-                    <td>{$operation['username']}</td>        
-                    <td>" . round($tacktime, 2) . " minutes par pièce</td>        
-                    <td>{$temps_restant}</td>        
-                    <td>{$operation['ok_element']} / {$operation['quantity']}</td>        
-                    <td>{$operation['name']}</td>
-                </tr>
-               ";
+                    <tr>
+                        <td>{$assigned_workbench['workbench_id']}</td>
+                        <td>{$assigned_user['first_name']} {$assigned_user['last_name']}</td>
+                        <td>{$tacktime['tacktime']}</td>
+                        <td>{$tacktime['temps_restant']}</td>
+                        <td>{$tacktime['pieces_restantes']} / {$operation['quantity']}</td>
+                        <td>{$assigned_product['name']}</td>
+                    </tr>
+                ";
+
+            }   
+
+        }
+
+        public function returnOperationFromOrderID(int $o_id)
+        {
+
+            return $this->request(
+                'SELECT * FROM operation WHERE assigned_order = :id',
+                array(
+                    ':id' => $o_id
+                )
+            )->fetchAll();
+
+        }
+
+
+        private function mainForeachStatement()
+        {
+
+            return $this->request('SELECT * FROM operation')->fetchAll();
+
+        }
+
+        private function assignedWorkbenchDetails(int $w_id)
+        {
+
+            return $this->request(
+                'SELECT * FROM workbench WHERE assigned_operation = :id',
+                array(
+                    ':id' => $w_id
+                )
+            )->fetch();
+
+        }
+
+        private function assignedUserDetails(int $w_id)
+        {
+
+                return $this->request(
+                    'SELECT * FROM users WHERE assigned_workbench = :id',
+                    array(
+                        ':id' => $w_id
+                    )
+                )->fetch();
+
+        }
+
+        private function assignedProduct(int $p_id)
+        {
+
+                return $this->request(
+                    'SELECT * FROM product WHERE product_id = :id',
+                    array(
+                        ':id' => $p_id
+                    )
+                )->fetch();
+
+        }
+
+        private function returnTackTime(string $create_date, string $assigned_time, int $operation_id, int $quantity, int $ok_element)
+        {
+
+            $d1 = new \DateTime(date('H:i:s'));
+            $d2 = new \DateTime(date('H:i:s', strtotime($create_date . '+' . $assigned_time . 'minutes')));
+
+            if ($d1 > $d2){
+                $this->request(
+                    'UPDATE operation SET status = 3 WHERE operation_id = :id',
+                    array(
+                        ':id' => $operation_id
+                    )
+                );
             }
+
+            $interval = $d1->diff($d2);
+
+            
+            $temps_restant = "{$interval->h}:{$interval->i}:{$interval->s}";
+
+            
+            $heures_restantes = date('H', strtotime($temps_restant)) * 60;
+            
+            $pieces_restantes = $quantity - $ok_element;
+
+            
+            $tacktime = (date('i', strtotime($temps_restant)) + $heures_restantes) / $pieces_restantes;
+
+            return array(
+                'tacktime' => $tacktime,
+                'pieces_restantes' => $pieces_restantes,
+                'temps_restant' => $temps_restant
+            );
 
         }
 

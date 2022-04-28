@@ -2,15 +2,53 @@
 
     namespace App;
 
+    use App\Operation as Operation;
+
     class Order extends Database
     {
 
         public function returnAllOrder()
         {
 
-            $this->request(
-                'SELECT * FROM order'
+            return $this->request(
+                'SELECT * FROM orders'
             )->fetchAll();
+
+        }
+
+        public function returnAllOrderWithOperations()
+        {
+
+            foreach ($this->returnAllOrder() as $order) {
+                $operation = new Operation();
+
+                print "<div class='box'>";       
+                print "<h2>{$order['name']}</h2>";
+                foreach($operation->returnOperationFromOrderID($order['id']) as $operation)
+                {
+                    print "
+                    <h4>Opération n°{$operation['operation_id']} : </h4>
+                    <table>
+                        <thead>
+                            <th>Produit utilisé</th>
+                            <th>Temps assigné</th>
+                            <th>Elements fabriqués</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{$operation['product_value']}</td>
+                                <td>{$operation['assigned_time']} Minutes</td>
+                                <td>{$operation['ok_element']} / {$operation['quantity']}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    ";
+
+                }
+
+                print "</div>";
+
+            }
 
         }
 
@@ -26,55 +64,11 @@
 
         }
 
-        public function returnAllOperationsFromOrder()
+        public function returnSelectionForm()
         {
 
-            foreach ($this->request(
-                'SELECT * FROM orders'
-            )->fetchAll() as $order)
-            {
-                print"
-                <h1>Commande n°{$order['id']}</h1>
-                <h2>Produit commandé : {$order['name']}</h2>
-                ";
-                foreach($this->request(
-                    'SELECT * FROM operation LEFT JOIN orders ON operation.assigned_order = orders.id WHERE orders.id = :id',
-                    array(
-                        ':id' => $order['id']
-                    )
-                )->fetchAll() as $order_operation){
-
-                    $d1 = new \DateTime(date('H:i:s'));
-                    $d2 = new \DateTime(date('H:i:s', strtotime($order_operation['create_date'] . '+' . $order_operation['assigned_time'] . 'minutes')));
-
-                    if ($d1 > $d2){
-                        $this->request(
-                            'UPDATE order_operation SET status = 3 WHERE order_operation_id = :id',
-                            array(
-                                ':id' => $order_operation['order_operation_id']
-                            )
-                        );
-                    }
-
-                    $interval = $d1->diff($d2);
-
-                    $temps_restant = "{$interval->h}:{$interval->i}:{$interval->s}";
-
-                    $heures_restantes = date('H', strtotime($temps_restant)) * 60;
-                    $pieces_restantes = $order_operation['quantity'] - $order_operation['ok_element'];
-
-                    $tacktime = (date('i', strtotime($temps_restant)) + $heures_restantes) / $pieces_restantes;
-
-                    print "
-                        <tr>
-                            <td>" . round($tacktime, 2) . " minutes par pièce</td>        
-                            <td>{$temps_restant}</td>        
-                            <td>{$order_operation['ok_element']} / {$order_operation['quantity']}</td>        
-                            <td>{$this->returnProductByID($order_operation['product_value'])}</td>
-                        </tr>
-                    ";
-                }
-
+            foreach($this->returnAllOrder() as $order){
+                print "<option value='{$order['id']}'>{$order['id']} : {$order['name']}</option>";
             }
 
         }

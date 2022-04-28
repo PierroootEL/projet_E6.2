@@ -15,6 +15,7 @@ class ComposerStaticInitdbab3212b91b3b38338815aeed292cd8
         'App\\Operation' => __DIR__ . '/../..' . '/app/class/operation.class.php',
         'App\\Order' => __DIR__ . '/../..' . '/app/class/order.class.php',
         'App\\Password' => __DIR__ . '/../..' . '/app/class/password.class.php',
+        'App\\Product' => __DIR__ . '/../..' . '/app/class/product.class.php',
         'App\\Register' => __DIR__ . '/../..' . '/app/class/register.class.php',
         'App\\RegisterError' => __DIR__ . '/../..' . '/app/class/register.error.php',
         'App\\Session' => __DIR__ . '/../..' . '/app/class/session.class.php',
