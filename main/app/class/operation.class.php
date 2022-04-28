@@ -110,7 +110,6 @@
 
         private function assignedProduct(int $p_id)
         {
-
                 return $this->request(
                     'SELECT * FROM product WHERE product_id = :id',
                     array(
