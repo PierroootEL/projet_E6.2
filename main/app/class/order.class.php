@@ -7,6 +7,11 @@
     class Order extends Database
     {
 
+        /**
+         * Return all orders
+         *
+         * @return array | false
+         */
         public function returnAllOrder()
         {
 
@@ -16,6 +21,36 @@
 
         }
 
+        /**
+         * Return all orders in a HTMLTable
+         *
+         * @return
+         */
+        public function returnAllOrderHTMLTable()
+        {
+
+            foreach($this->returnAllOrder() as $order)
+            {
+
+                print "
+                <tr>
+                    <td>{$order['id']}</td>
+                    <td>{$order['name']}</td>
+                    <td>{$order['assigned_time']}</td>
+                    <td>{$order['status']}<td>
+                    <td>{$order['created_order']}</td>
+                </tr>
+                ";
+
+            }
+
+        }
+
+        /**
+         * Return all order with operations associed in HTML Table
+         *
+         * @return 
+         */
         public function returnAllOrderWithOperations()
         {
 
@@ -52,6 +87,12 @@
 
         }
 
+        /**
+         * Return a product using is ID
+         *
+         * @param integer $product_id
+         * @return 
+         */
         public function returnProductByID(int $product_id)
         {
 
@@ -70,6 +111,19 @@
             foreach($this->returnAllOrder() as $order){
                 print "<option value='{$order['id']}'>{$order['id']} : {$order['name']}</option>";
             }
+
+        }
+
+        public function addNewOrder(string $name, int $asssiged_time)
+        {
+
+            $this->request(
+                'INSERT INTO orders (name, assigned_time) VALUES (:name, :time)',
+                array(
+                    ':name' => $name,
+                    ':time' => $asssiged_time
+                )
+            );
 
         }
 

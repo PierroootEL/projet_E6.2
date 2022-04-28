@@ -5,9 +5,8 @@
     require_once 'vendor/autoload.php';
     require_once 'src/sessionCheckerAdmin.php';
 
-    $o = new \App\Order();
-
-    $o->returnAllOperationsFromOrder();
+    $order = new \App\Order();
+    // $order->returnAllOrderHTMLTable();
 
 ?>
 
