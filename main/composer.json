@@ -2,7 +2,7 @@
     "name": "e6.2/autoload",
     "description": "Autoload des classes du projet e6.2",
     "autoload": {
-	"classmap": ["app/class"]
+	    "classmap": ["app/class"]
     },
     "require": {}
 }

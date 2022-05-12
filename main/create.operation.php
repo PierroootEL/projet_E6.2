@@ -21,20 +21,21 @@ use App\Workbench;
     <link rel="shortcut icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="assets/ajoutcompte.css">
     <link rel="stylesheet" type="text/css" href="assets/index.css">
+    <link rel="stylesheet" type="text/css" href="assets/menu.css">
 </head>
 <body>
 <div class="container">
     <div class="compte">
         <h1>Création d'une oppération</h1>
-        <form method="post" action="listener/register.listener.php">
+        <form method="get" action="app/listener/operation.listener.php">
             <select name="workbench">
                 <?php $workbench->returnSelectionForm(); ?>
             </select>
             <select name="order">
                 <?php $order->returnSelectionForm(); ?>
             </select>
-            <input  type="text" name="quantité" placeholder="Saisir la quantité de pièces">
-            <input  type="text" name="temps" placeholder="Saisir le temps pour l'oppération">
+            <input  type="text" name="quantity" placeholder="Saisir la quantité de pièces">
+            <input  type="text" name="assigned_time' placeholder="Saisir le temps pour l'oppération">
             <button class="valide" name="valid" type="submit">Valider</button>
         </form>
         <?php  ?>

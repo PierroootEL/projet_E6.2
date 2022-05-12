@@ -1,5 +1,7 @@
 <?php
 
+use App\Order;
+
     session_start();
 
     require_once 'src/sessionCheckerAdmin.php';
@@ -16,6 +18,12 @@
             case 'bench':
                 $bench = new \App\Workbench();
                 $bench->deleteWorkbench($_GET['id']);
+            case 'order':
+                $order = new App\Order();
+                $order->deleteOrder($_GET['id']);
+            case 'product':
+                $product = new App\Product();
+                $product->deleteProduct($_GET['id']);
             default:
                 header('Location: /dashboard.admin.php');
 

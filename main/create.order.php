@@ -15,12 +15,11 @@
     <div class="container">
         <div class="compte">
             <h1>Ajouter une commande</h1>
-            <form method="post" action="app/listener/register.listener.php">
-                <input  type="text" name="nom" placeholder="Saisir le nom">
-                <input  type="text" name="nombre" placeholder="Saisir le nombre">
+            <form method="post" action="app/listener/order.listener.php">
+                <input  type="text" name="name" placeholder="Saisir le nom">
+                <input  type="text" name="quantity" placeholder="Saisir la quantité">
                 <button class="valide" name="valid" type="submit">Valider</button>
             </form>
-            <?php new \App\RegisterError(); ?>
         </div>
     </div>
 

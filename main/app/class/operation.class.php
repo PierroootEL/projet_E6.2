@@ -2,8 +2,6 @@
 
     namespace App;
 
-    use Cassandra\Time;
-
     class Operation extends Database
     {
 
@@ -73,6 +71,28 @@
                     ':id' => $o_id
                 )
             )->fetchAll();
+
+        }
+
+        public function addNewOperation(int $w_id, int $o_id, int $quantity, int $assigned_time)
+        {
+
+            $this->request(
+                'INSERT INTO operation (quantity, assigned_order, assigned_time) VALUES (:quantity, :order, :time)',
+                array(
+                    ':quantity' => $quantity,
+                    ':order' => $o_id,
+                    ':time' => $assigned_time
+                )
+            );
+
+            /* $this->request(
+                'SELECT '
+            ) */
+
+            $this->request(
+                'UPDATE workbench SET assigned_operation = '
+            );
 
         }
 

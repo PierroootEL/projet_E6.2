@@ -32,7 +32,7 @@
         <li><a href="gestion.comptes.php">Gestion comptes</a></li>
         <li><a href="gestion.workbench.php">Gestion ateliers</a></li>
         <li><a href="gestion.products.php">Gestion produits</a></li>
-        <li><a href="gestion.order.php">Gestion opérations</a></li>
+        <li><a href="gestion.order.php">Gestion commandes</a></li>
     </ul>
 </nav>
 <div class="container">

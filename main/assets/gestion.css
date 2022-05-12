@@ -15,8 +15,20 @@
 .container_left button{
     width: 120px;
     height: 40px;
-    margin-top: 60px;
+    margin-top: 60px !important;
+    
+
 }
+
+.container_left form{
+    display: flex;
+    flex-direction: column;
+}
+
+.container_left form button{
+    margin-top: 30px !important;
+}
+
 .container_left input{
     width: 200px;
     height: 30px;
@@ -181,4 +193,8 @@ button:disabled {
 }
 .container_left button{
     margin-top: 30px;
+}
+.container input{
+    border-radius: 10px;
+    text-align: center;
 }

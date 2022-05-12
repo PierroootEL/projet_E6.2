@@ -37,8 +37,11 @@
                     <td>{$order['id']}</td>
                     <td>{$order['name']}</td>
                     <td>{$order['assigned_time']}</td>
-                    <td>{$order['status']}<td>
+                    <td>{$order['quantity']}</td>
+                    <td>{$order['status']}</td>
                     <td>{$order['created_order']}</td>
+                    <td><a href='/edit.order.php?id={$order['id']}'>Editer</a></td>
+                    <td><a href='/delete.php?type=order&id={$order['id']}'>Supprimer</a></td>
                 </tr>
                 ";
 
@@ -61,6 +64,9 @@
                 print "<h2>{$order['name']}</h2>";
                 foreach($operation->returnOperationFromOrderID($order['id']) as $operation)
                 {
+
+                    $workbench = new Workbench();
+                    
                     $d1 = new \DateTime(date('H:i:s'));
                     $d2 = new \DateTime(date('H:i:s', strtotime($operation['create_date'] . '+' . $operation['assigned_time'] . 'minutes')));
                     $jour_actuel = date('Y-m-d');
@@ -102,7 +108,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{$operation['product_value']}</td>
+                                <td>{$workbench->returnProductAssignedByOperationID($operation['operation_id'])}</td>
                                 <td>{$operation['assigned_time']} Minutes</td>
                                 <td>{$operation['ok_element']} / {$operation['quantity']}</td>
                                 <td>{$tacktime}</td>
@@ -142,19 +148,44 @@
         {
 
             foreach($this->returnAllOrder() as $order){
-                print "<option value='{$order['id']}'>{$order['id']} : {$order['name']}</option>";
+                print "<option name='order' value='{$order['id']}'>{$order['id']} : {$order['name']}</option>";
             }
 
         }
 
-        public function addNewOrder(string $name, int $asssiged_time)
+        public function addNewOrder(string $name, int $quantity)
         {
 
             $this->request(
-                'INSERT INTO orders (name, assigned_time) VALUES (:name, :time)',
+                'INSERT INTO orders (name, quantity) VALUES (:name, :quantity)',
                 array(
                     ':name' => $name,
-                    ':time' => $asssiged_time
+                    ':quantity' => $quantity
+                )
+            );
+
+        }
+
+        public function editOrder(int $o_id, int $o_quantity)
+        {
+
+            $this->request(
+                'UPDATE orders SET quantity = :qu WHERE id = :id',
+                array(
+                    ':qu' => $o_quantity,
+                    ':id' => $o_id
+                )
+            );
+
+        }
+
+        public function deleteOrder(int $o_id)
+        {
+
+            $this->request(
+                'DELETE FROM orders WHERE id = :id',
+                array(
+                    ':id' => $o_id
                 )
             );
 

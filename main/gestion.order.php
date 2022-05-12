@@ -19,8 +19,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="shortcut icon" type="image/png" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/index.css">
+    
     <link rel="stylesheet" type="text/css" href="assets/gestion.css">
+    <link rel="stylesheet" type="text/css" href="assets/index.css">
 
 
 </head>
@@ -39,13 +40,16 @@
             <tr>
                 <th>ID</th>
                 <th>Nom</th>
+                <th>temps</th>
                 <th>quantité</th>
+                <th>statut</th>
+                <th>date</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
             </thead>
             <tbody>
-            <?php $bench->returnAllWorkbench(); ?>
+            <?php $order->returnAllOrderHTMLTable(); ?>
             </tbody>
         </table>
     </div>
