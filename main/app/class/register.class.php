@@ -33,7 +33,7 @@
                 RegisterError::returnRegisterError(3);
             }
 
-            header('Location: /login.php');
+            header('Location: /login');
 
         }
 

@@ -24,19 +24,39 @@
 
         }
 
-        public function exportOperation(){
+        public function exportOrders()
+        {
 
-            $workbenchs = $this->request(
+            $orders = $this->request(
+                'SELECT * FROM orders'
+            )->fetchAll();
+
+            $fp = fopen('/var/www/pierre/projet_E6.2/main/src/files/orders_' . date('d-m-Y_H-i-s') . '.csv', 'w');
+
+            $entete = array('id', 'name', 'quantity', 'assigned_time', 'created_order', 'status');
+            fputcsv($fp, $entete, ';');
+
+            foreach ($orders as $order){
+                fputcsv($fp, $order, ';');
+            }
+
+            fclose($fp);
+
+        }
+
+        public function exportOperations(){
+
+            $operations = $this->request(
                 'SELECT * FROM operation'
             )->fetchAll();
 
             $fp = fopen('/var/www/pierre/projet_E6.2/main/src/files/operation_' . date('d-m-Y_H-i-s') . '.csv', 'w');
 
-            $entete = array('operation_id', 'product_value', 'quantity', 'create_date', 'status');
+            $entete = array('operation_id', 'quantity', 'ok_element', 'nok_element', 'assigned_order', 'assigned_time', 'create_date', 'status');
             fputcsv($fp, $entete, ';');
 
-            foreach ($workbenchs as $workbench){
-                fputcsv($fp, $workbench, ';');
+            foreach ($operations as $operation){
+                fputcsv($fp, $operation, ';');
             }
 
             fclose($fp);

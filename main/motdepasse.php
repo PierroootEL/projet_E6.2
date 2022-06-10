@@ -34,7 +34,7 @@
 </body>
 
 <footer>
-    <img src="assets/irup.jpg"
+    <img src="assets/irup.jpg">
 </footer>
 </body>
 </html>

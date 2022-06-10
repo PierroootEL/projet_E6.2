@@ -30,7 +30,7 @@
         public static function returnRegisterError(int $e)
         {
 
-            header('Location: /register.php?e=' . $e);
+            header('Location: /register?e=' . $e);
             exit();
 
         }

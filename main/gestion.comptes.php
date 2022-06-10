@@ -26,8 +26,8 @@
 <div class="container">
     <div class="container_left">
 
-         <button class="un" type="button" onclick="location.href='dashboard.admin.php'">Dashboard Administrateur</button>
-        <button class="un" type="button" onclick="location.href='register.php'">Ajouter un compte</button>
+         <button class="un" type="button" onclick="location.href='dashboardAdmin'">Dashboard Administrateur</button>
+        <button class="un" type="button" onclick="location.href='register'">Ajouter un compte</button>
 
         <form method="get" action="">
             <input type="search" name="search" placeholder="Nom de famille">

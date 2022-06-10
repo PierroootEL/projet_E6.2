@@ -6,6 +6,6 @@
         $order->editOrder($_GET['id'], $_POST['quantity']);
     }
 
-    header('Location: /gestion.order.php');
+    header('Location: /gestionOrder');
 
 ?>

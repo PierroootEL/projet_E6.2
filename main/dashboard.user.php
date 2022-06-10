@@ -26,8 +26,8 @@
     <div class="container">
         <h2><?php print $_SESSION['first_name'] . PHP_EOL . $_SESSION['last_name']; ?></h2>
         <h3>Atelier n° : <?php print $workbench->returnAssignedWorkbench($_SESSION['username'])['workbench_id']; ?></h3>
-        <h4 style="font-size: 20px">Nom de l'atelier : <?php print $workbench->returnAssignedWorkbench($_SESSION['username'])['workbench_name']; ?></h4>
-        <button onclick="location.href='disconnect.php'">Logout</button>
+        <h4 style="font-size: 20px">Nom de l'atel   ier : <?php print $workbench->returnAssignedWorkbench($_SESSION['username'])['workbench_name']; ?></h4>
+        <button onclick="location.href='disconnect'">Logout</button>
         <h1>Tacktime: 0.20 min </h1>
         <h3>Pièce A 2/20</h3>
         <h3>Pièce B 6/20</h3>

@@ -7,6 +7,6 @@
         $product->addNewProduct($_POST['name']);
     }
 
-    header('Location: /gestion.products.php');
+    header('Location: /gestionProducts');
 
 ?>

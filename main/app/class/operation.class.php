@@ -5,6 +5,11 @@
     class Operation extends Database
     {
 
+        /**
+         * Retourne toutes les opérations créées
+         *
+         * @return array|false 
+         */
         public function returnAllOperations()
         {
 
@@ -62,6 +67,12 @@
 
         }
 
+        /**
+         * Retourne toutes les opérations associés à un numéro de commande spécifique
+         *
+         * @param integer $o_id
+         * @return void
+         */
         public function returnOperationFromOrderID(int $o_id)
         {
 
@@ -74,7 +85,15 @@
 
         }
 
-        public function addNewOperation(int $w_id, int $o_id, int $quantity, int $assigned_time)
+        /**
+         * Ajouter une nouvelle opération
+         *
+         * @param integer $o_id
+         * @param integer $quantity
+         * @param integer $assigned_time
+         * @return void
+         */
+        public function addNewOperation(int $o_id, int $quantity, int $assigned_time)
         {
 
             $this->request(
@@ -96,7 +115,11 @@
 
         }
 
-
+        /**
+         * Retourne toutes les opétations
+         *
+         * @return array
+         */
         private function mainForeachStatement()
         {
 
@@ -104,6 +127,12 @@
 
         }
 
+        /**
+         * Informations sur l'établi associé à une commande
+         *
+         * @param integer $w_id
+         * @return void
+         */
         private function assignedWorkbenchDetails(int $w_id)
         {
 
@@ -112,10 +141,16 @@
                 array(
                     ':id' => $w_id
                 )
-            )->fetch();
+            )->fetchAll();
 
         }
 
+        /**
+         * Retourne les utilisateurs associés a une opération
+         *
+         * @param integer $w_id
+         * @return void
+         */
         private function assignedUserDetails(int $w_id)
         {
 
@@ -128,6 +163,12 @@
 
         }
 
+        /**
+         * Retourne les produits en fonction de leur ID propre
+         *
+         * @param integer $p_id
+         * @return void
+         */
         private function assignedProduct(int $p_id)
         {
                 return $this->request(
@@ -139,6 +180,16 @@
 
         }
 
+        /**
+         * Retourne le tacktime en fonction des différents paramètres inscrits
+         *
+         * @param string $create_date
+         * @param string $assigned_time
+         * @param integer $operation_id
+         * @param integer $quantity
+         * @param integer $ok_element
+         * @return void
+         */
         private function returnTackTime(string $create_date, string $assigned_time, int $operation_id, int $quantity, int $ok_element)
         {
 

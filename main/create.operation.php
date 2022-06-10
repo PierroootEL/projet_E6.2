@@ -35,7 +35,7 @@ use App\Workbench;
                 <?php $order->returnSelectionForm(); ?>
             </select>
             <input  type="text" name="quantity" placeholder="Saisir la quantité de pièces">
-            <input  type="text" name="assigned_time' placeholder="Saisir le temps pour l'oppération">
+            <input  type="text" name="assigned_time" placeholder="Saisir le temps pour l'oppération">
             <button class="valide" name="valid" type="submit">Valider</button>
         </form>
         <?php  ?>

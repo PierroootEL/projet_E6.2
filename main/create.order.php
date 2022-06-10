@@ -18,6 +18,7 @@
             <form method="post" action="app/listener/order.listener.php">
                 <input  type="text" name="name" placeholder="Saisir le nom">
                 <input  type="text" name="quantity" placeholder="Saisir la quantité">
+                <input type="text" name="time" placeholder="Saisir le temps assigné">
                 <button class="valide" name="valid" type="submit">Valider</button>
             </form>
         </div>

@@ -40,8 +40,8 @@
                     <td>{$order['quantity']}</td>
                     <td>{$order['status']}</td>
                     <td>{$order['created_order']}</td>
-                    <td><a href='/edit.order.php?id={$order['id']}'>Editer</a></td>
-                    <td><a href='/delete.php?type=order&id={$order['id']}'>Supprimer</a></td>
+                    <td><a href='/editOrder?id={$order['id']}'>Editer</a></td>
+                    <td><a href='/delete?type=order&id={$order['id']}'>Supprimer</a></td>
                 </tr>
                 ";
 
@@ -101,14 +101,14 @@
                     <h4>Opération n°{$operation['operation_id']} : </h4>
                     <table>
                         <thead>
-                            <th>Produit utilisé</th>
+                            <!-- <th>Produit utilisé</th> -->
                             <th>Temps assigné</th>
                             <th>Elements fabriqués</th>
                             <th>Tack Time</th>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{$workbench->returnProductAssignedByOperationID($operation['operation_id'])}</td>
+                                <!-- <td>{$workbench->returnProductAssignedByOperationID($operation['operation_id'])}</td> -->
                                 <td>{$operation['assigned_time']} Minutes</td>
                                 <td>{$operation['ok_element']} / {$operation['quantity']}</td>
                                 <td>{$tacktime}</td>
@@ -153,14 +153,15 @@
 
         }
 
-        public function addNewOrder(string $name, int $quantity)
+        public function addNewOrder(string $name, int $quantity, int $time)
         {
 
             $this->request(
-                'INSERT INTO orders (name, quantity) VALUES (:name, :quantity)',
+                'INSERT INTO orders (name, quantity, assigned_time) VALUES (:name, :quantity, :time)',
                 array(
                     ':name' => $name,
-                    ':quantity' => $quantity
+                    ':quantity' => $quantity,
+                    ':time' => $time
                 )
             );
 

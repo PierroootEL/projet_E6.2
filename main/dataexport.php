@@ -8,10 +8,12 @@
     $data = new \App\DataExport();
 
     $data->exportWorkbench();
+    $data->exportOrders();
+    $data->exportOperations();
 
     sleep(5);
 
-    header('Location: /dashboard.admin.php');
+    header('Location: /dashboardAdmin');
 
 ?>
 <html>

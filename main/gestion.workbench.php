@@ -27,9 +27,9 @@
 <div class="container">
     <div class="container_left">
 
-        <button class="un" type="button" onclick="location.href='dashboard.admin.php'">Dashboard Administrateur</button>
-        <button class="un" type="button" onclick="location.href='create.workbench.php'">Ajouter un atelier</button>
-        <button class="un" type="button" onclick="location.href='create.operation.php'">Ajouter une tache</button>
+        <button class="un" type="button" onclick="location.href='dashboardAdmin'">Dashboard Administrateur</button>
+        <button class="un" type="button" onclick="location.href='createWorkbench'">Ajouter un atelier</button>
+        <button class="un" type="button" onclick="location.href='createOperation'">Ajouter une tache</button>
 
     </div>
     <div class ="container_right">

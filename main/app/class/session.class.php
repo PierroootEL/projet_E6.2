@@ -21,11 +21,11 @@
                     ':id' => $_SESSION['assigned_authorisation']
                 )
             )->fetch()['perm'] == 'admin'){
-                header('Location: /dashboard.admin.php');
+                header('Location: /dashboardAdmin');
                 exit();
             }
 
-            header('Location: /dashboard.user.php');
+            header('Location: /dashboardUser');
 
         }
 
@@ -60,7 +60,7 @@
 
             session_destroy();
 
-            header('Location: /login.php');
+            header('Location: /login');
 
         }
 

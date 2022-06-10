@@ -20,4 +20,5 @@ return array(
     'App\\Session' => $baseDir . '/app/class/session.class.php',
     'App\\Workbench' => $baseDir . '/app/class/workbench.class.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Moniteur' => $baseDir . '/app/class/moniteur.class.php',
 );

@@ -7,6 +7,6 @@
         $workbench->addWorkbench($_POST['fonction']);
     }
 
-    header('Location: /gestion.workbench.php');
+    header('Location: /gestionWorkbench');
 
 ?>

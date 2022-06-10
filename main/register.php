@@ -31,10 +31,10 @@
             </form>
             <?php new \App\RegisterError(); ?>
         </div>
-    </div>
+    </div>S
 
 </body>
 <footer>
-    <img src="assets/irup.jpg"
+    <img src="assets/irup.jpg">
 </footer>
 </html>

@@ -15,7 +15,7 @@
                 <tr>
                     <td>{$product['product_id']}</td>
                     <td>{$product['name']}</td>
-                    <td><a href='/delete.php?type=product&id={$product['product_id']}'>Supprimer</a></td>
+                    <td><a href='/delete?type=product&id={$product['product_id']}'>Supprimer</a></td>
                 </tr>
                 ";
             }

@@ -5,6 +5,9 @@
     class LoginError
     {
 
+        /**
+         * Erreur de connexion sur la page de login
+         */
         public function __construct()
         {
 
@@ -27,9 +30,15 @@
 
         }
 
+        /**
+         * Redirection sur la page de login avec erreur dans l'URL
+         *
+         * @param integer $e
+         * @return void
+         */
         public static function returnLoginError(int $e)
         {
-            header('Location: /login.php?e=' . $e);
+            header('Location: /login?e=' . $e);
             exit();
         }
 

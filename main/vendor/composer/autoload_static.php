@@ -21,6 +21,7 @@ class ComposerStaticInitdbab3212b91b3b38338815aeed292cd8
         'App\\Session' => __DIR__ . '/../..' . '/app/class/session.class.php',
         'App\\Workbench' => __DIR__ . '/../..' . '/app/class/workbench.class.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Moniteur' => __DIR__ . '/../..' . '/app/class/moniteur.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

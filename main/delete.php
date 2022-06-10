@@ -25,7 +25,7 @@ use App\Order;
                 $product = new App\Product();
                 $product->deleteProduct($_GET['id']);
             default:
-                header('Location: /dashboard.admin.php');
+                header('Location: /dashboardAdmin');
 
         }
     }

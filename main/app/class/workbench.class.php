@@ -22,8 +22,8 @@
                 <tr>
                     <td>N°{$workbench['workbench_id']}</td>
                     <td>{$workbench['workbench_name']}</td>
-                    <td><a href='/edit.workbench.php?id={$workbench['workbench_id']}'>Modifier</a></td>
-                    <td><a href='/delete.php?type=bench&id={$workbench['workbench_id']}'>Supprimer</a><td>
+                    <td><a href='/edit.workbench?id={$workbench['workbench_id']}'>Modifier</a></td>
+                    <td><a href='/delete?type=bench&id={$workbench['workbench_id']}'>Supprimer</a></td>
                 </tr>
                 ";
             }

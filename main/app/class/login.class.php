@@ -5,6 +5,12 @@
     class Login extends Database
     {
 
+        /**
+         * Système de login des utilisateurs
+         *
+         * @param string $username
+         * @param string $password
+         */
         public function __construct(string $username, string $password)
         {
 
