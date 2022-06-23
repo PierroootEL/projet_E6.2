@@ -12,6 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js">
     <link rel="shortcut icon" type="image/png" href="favicon.ico">
@@ -48,17 +49,18 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
         <script src="ploq.js"></script>
         <script>
-            
+
+
 const ctx = document.getElementById('atelier').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [<?php foreach ($moniteur->extractWorkbench() as $workbench) { print $workbench['atelier_name']; ?>, <?php } ?>],
+        labels: [<?php  foreach ($moniteur->extractWorkbench() as $workbench) { print $workbench['atelier_name']; ?>, <?php  } ?>],
         datasets: [{
             label: 'Opérations',
-            data: [<?php foreach ($moniteur->extractWorkbench() as $workbench) { print $workbench['ok_element']; ?>, <?php } ?>],
+            data: [<?php  foreach ($moniteur->extractWorkbench() as $workbench) { print $workbench['ok_element']; ?>, <?php  } ?>],
             backgroundColor: [
-                <?php foreach ($moniteur->extractWorkbench() as $workbench) { print $workbench['color']; ?>, <?php } ?>
+                <?php  foreach ($moniteur->extractWorkbench() as $workbench) { print $workbench['color']; ?>, <?php } ?>
             ]
         }]
     },
@@ -76,6 +78,8 @@ const myChart = new Chart(ctx, {
 });
 
 
+
+
 const graph = document.getElementById("graph").getContext("2d");
 
 Chart.defaults.global.defaultFontSize = 18;
@@ -89,8 +93,8 @@ let massPopChart = new Chart(graph, {
     ],
     datasets: [
       {
-        label: "Population en M ",
-        data: [<?php print $moniteur->extractChartCommandes()['toDo']; ?>, <?php print $moniteur->extractChartCommandes()['finish']; ?>],
+        label: "",
+        data: [<?php  print $moniteur->extractChartCommandes()['toDo']; ?>, <?php  print $moniteur->extractChartCommandes()['finish']; ?>],
         // backgroundColor: "blue",
         backgroundColor: [
           "red",
@@ -110,6 +114,8 @@ let massPopChart = new Chart(graph, {
 });
 
 
+
+
 const graph2 = document.getElementById("graph2").getContext("2d");
 
 Chart.defaults.global.defaultFontSize = 18;
@@ -123,7 +129,7 @@ let massPopChart2 = new Chart(graph2, {
     ],
     datasets: [
       {
-        label: "Population en M ",
+        label: " ",
         data: [<?php print $moniteur->extractChartOperations()['toDo'] ?>, <?php print $moniteur->extractChartOperations()['finish'] ?>],
         // backgroundColor: "blue",
         backgroundColor: [

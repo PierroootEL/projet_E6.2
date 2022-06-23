@@ -66,9 +66,21 @@
             }
 
             public function chartWorkbenchs(){
-                return $this->request(
+                if($this->request(
                     'SELECT * FROM workbench, operation WHERE workbench.assigned_operation = operation.operation_id'
-                )->fetchAll();
+                    )->rowCount() != 0
+                ){
+                    return $this->request(
+                        'SELECT * FROM workbench, operation WHERE workbench.assigned_operation = operation.operation_id'
+                    )->fetchAll();
+                }else{
+                    return array(
+                        array(
+                            'quantity' => 0,
+                            'ok_element' => 0,
+                        )
+                    );
+                }
             }
 
             public function extractWorkbench(){

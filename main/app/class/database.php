@@ -13,7 +13,7 @@
         {
 
             return new \PDO(
-                'mysql:host=vps.pierre-blanchard.fr;dbname=Mykey3d;charset=utf8mb4',
+                'mysql:host=localhost;dbname=Mykey3d;charset=utf8mb4',
                 $this->_username,
                 $this->_password,
                 array(
